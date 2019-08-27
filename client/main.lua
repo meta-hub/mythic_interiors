@@ -13,7 +13,7 @@ end
 function TeleportToInterior(x, y, z, h)
     Citizen.CreateThread(function()
         DoScreenFadeOut(500)
-        TriggerServerEvent('InteractSound_SV:PlayOnSource', 'door_open', 0.1)
+        TriggerServerEvent('mythic_sounds:server:PlayOnSource', 'door_open', 0.1)
         while not IsScreenFadedOut() do
             Citizen.Wait(10)
         end
