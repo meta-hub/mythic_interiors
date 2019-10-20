@@ -9,10 +9,14 @@ function CreateHotel(spawn)
 
   local shell = CreateObject(`playerhouse_hotel`, spawn.x, spawn.y, spawn.z, false, false, false)
   FreezeEntityPosition(shell, true)
+  table.insert(objects, shell)
 
   local curtains = CreateObject(`V_49_MotelMP_Curtains`, spawn.x + 1.55156000, spawn.y + (-3.83100100), spawn.z + 2.23457500)
+  FreezeEntityPosition(curtains, true)
   table.insert(objects, curtains)
+
   local window = CreateObject(`V_49_MotelMP_Curtains`, spawn.x + 1.43190000, spawn.y + (-3.92315100), spawn.z + 2.29329600)
+  FreezeEntityPosition(window, true)
   table.insert(objects, window)
 
   return { objects, POIOffsets }
@@ -33,13 +37,11 @@ function CreateTier1House(spawn, isBackdoor)
   table.insert(objects, shell)
 
   local dt = CreateObject(`V_16_DT`, spawn.x-1.21854400, spawn.y-1.04389600, spawn.z + 1.39068600, false, false, false)
+  FreezeEntityPosition(dt,true)
   table.insert(objects, dt)
 
-  if not isBackdoor then
-      TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + 1.5, POIOffsets.exit.h)
-  else
-      TeleportToInterior(spawn.x + POIOffsets.backdoor.x, spawn.y + POIOffsets.backdoor.y, spawn.z + 1.5, POIOffsets.backdoor.h + 180)
-  end
+  if not isBackdoor then TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + 1.5, POIOffsets.exit.h)
+  else TeleportToInterior(spawn.x + POIOffsets.backdoor.x, spawn.y + POIOffsets.backdoor.y, spawn.z + 1.5, POIOffsets.backdoor.h + 180) end
 
   return { objects, POIOffsets }
 end
@@ -55,18 +57,14 @@ function CreateTier2House(spawn, isBackdoor)
 
   local shell = CreateObject(`playerhouse_tier1`, spawn.x, spawn.y, spawn.z, false, false, false)
   FreezeEntityPosition(shell, true)
-
   table.insert(objects, shell)
 
   local dt = CreateObject(`V_16_DT`, spawn.x-1.21854400, spawn.y-1.04389600, spawn.z + 1.39068600, false, false, false)
+  FreezeEntityPosition(dt, true)
   table.insert(objects, dt)
 
-
-  if not isBackdoor then
-      TeleportToInterior(spawn.x + 3.69693000, spawn.y - 15.080020100, spawn.z + 1.5, spawn.h)
-  else
-      TeleportToInterior(spawn.x + 0.88999176025391, spawn.y + 4.3798828125, spawn.z + 1.5, spawn.h)
-  end
+  if not isBackdoor then TeleportToInterior(spawn.x + 3.69693000, spawn.y - 15.080020100, spawn.z + 1.5, spawn.h)
+  else TeleportToInterior(spawn.x + 0.88999176025391, spawn.y + 4.3798828125, spawn.z + 1.5, spawn.h) end
 
   return { objects, POIOffsets }
 end
@@ -80,21 +78,17 @@ function CreateTier3House(spawn, isBackdoor)
 
   RequestModel(`playerhouse_tier3`)
   while not HasModelLoaded(`playerhousee_tier3`) do RequestModel(`playerhouse_tier3`); Wait(0); end
-  
+
   local shell = CreateObject(`playerhouse_tier3`, spawn.x, spawn.y, spawn.z, false, false, false)
+  FreezeEntityPosition(shell, true)
   table.insert(objects, shell)
 
   local windows1 = CreateObject(`v_16_high_lng_over_shadow`, spawn.x + 10.16043000, spawn.y + -4.83294600, spawn.z + 4.99192700, false, false, false)
+  FreezeEntityPosition(windows1, true)
   table.insert(objects, windows1)
 
-  FreezeEntityPosition(shell, true)
-  FreezeEntityPosition(windows1, true)
-
-  if not isBackdoor then
-      TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + POIOffsets.exit.z, spawn.h)
-  else
-      TeleportToInterior(spawn.x + POIOffsets.backdoor.x, spawn.y + POIOffsets.backdoor.y, spawn.z + POIOffsets.backdoor.z, spawn.h)
-  end
+  if not isBackdoor then TeleportToInterior(spawn.x + POIOffsets.exit.x, spawn.y + POIOffsets.exit.y, spawn.z + POIOffsets.exit.z, spawn.h)
+  else TeleportToInterior(spawn.x + POIOffsets.backdoor.x, spawn.y + POIOffsets.backdoor.y, spawn.z + POIOffsets.backdoor.z, spawn.h) end
 
   return { objects, POIOffsets }
 end
