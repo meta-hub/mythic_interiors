@@ -1,5 +1,11 @@
 -- Thanks Stroudy <3
 function CreateHotelFurnished(spawn)
+	RequestModel(`playerhouse_hotel`)
+	while not HasModelLoaded(`playerhouse_hotel`) do
+		RequestModel(`playerhouse_hotel`)
+	        Citizen.Wait(0)
+	end
+	
 	local building = CreateObject(GetHashKey('playerhouse_hotel'),generator.x - 0.7,generator.y-0.4,generator.z-1.42,false,false,false)
 
 	FreezeEntityPosition(building,true)
@@ -58,6 +64,12 @@ function CreateTier1HouseFurnished(spawn, isBackdoor)
     local POIOffsets = {}
     POIOffsets.exit = json.decode('{"z":2.5,"y":-15.901171875,"x":4.251012802124,"h":2.2633972168}')
     POIOffsets.backdoor = json.decode('{"z":2.5,"y":4.3798828125,"x":0.88999176025391,"h":182.2633972168}')
+	
+    RequestModel(`playerhouse_tier1_full`)
+    while not HasModelLoaded(`playerhouse_tier1_full`) do
+	RequestModel(`playerhouse_tier1_full`)
+    	Citizen.Wait(0)
+    end
 
     local shell = CreateObject(`playerhouse_tier1_full`, spawn.x, spawn.y, spawn.z, false, false, false)
     FreezeEntityPosition(shell, true)
