@@ -55,7 +55,7 @@ end
 -- Thanks Stroudy <3
 function CreateTier1HouseFurnished(spawn, isBackdoor)
   local POIOffsets = {}
-  POIOffsets.exit = json.decode('{"z":2.5,"y":-15.901171875,"x":4.251012802124,"h":2.2633972168}')
+  POIOffsets.exit = json.decode('{"z":2.5,"y":-16.501171875,"x":5.01012802124,"h":2.2633972168}')
   POIOffsets.backdoor = json.decode('{"z":2.5,"y":4.3798828125,"x":0.88999176025391,"h":182.2633972168}')
 
   RequestModel(`playerhouse_tier1_full`)
@@ -174,9 +174,9 @@ function CreateTier1HouseFurnished(spawn, isBackdoor)
   SetEntityHeading(objects.knifeblock,GetEntityHeading(knifeblock)+180)
   
   if not isBackdoor then
-      TeleportToInterior(spawn.x + 3.69693000, spawn.y - 15.080020100, spawn.z + 1.5, spawn.h)
+    TeleportToInterior(spawn.x + 3.69693000, spawn.y - 15.400020100, spawn.z + 1.5, spawn.h)
   else
-      TeleportToInterior(spawn.x + 0.88999176025391, spawn.y + 4.3798828125, spawn.z + 1.5, spawn.h)
+    TeleportToInterior(spawn.x + 0.88999176025391, spawn.y + 4.3798828125, spawn.z + 1.5, spawn.h)
   end
 
   return { objects, POIOffsets }
