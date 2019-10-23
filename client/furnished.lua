@@ -8,6 +8,7 @@ function CreateHotelFurnished(spawn)
   Wait(100)
   
   local objects = {
+    shell     = shell,
     stuff     = CreateObject(GetHashKey("v_49_motelmp_stuff"),spawn.x,spawn.y,spawn.z,false,false,false),
     bed       = CreateObject(GetHashKey("v_49_motelmp_bed"),spawn.x+1.4,spawn.y-0.55,spawn.z,false,false,false),
     clothes   = CreateObject(GetHashKey("v_49_motelmp_clothes"),spawn.x-2.0,spawn.y+2.0,spawn.z+0.15,false,false,false),
@@ -33,7 +34,6 @@ function CreateHotelFurnished(spawn)
     binder    = CreateObject(GetHashKey("v_res_binder"),spawn.x-2.2,spawn.y+1.3,spawn.z+0.87,false,false,false),
   }
   
-  objects["shell"] = shell
   for k,v in pairs(objects) do FreezeEntityPosition(v,true); end
 
   SetEntityHeading(chair1,GetEntityHeading(chair1)+270)
