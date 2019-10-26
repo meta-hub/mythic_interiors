@@ -3,37 +3,37 @@ function CreateHotelFurnished(spawn)
   RequestModel(`playerhouse_hotel`)
   while not HasModelLoaded(`playerhouse_hotel`) do RequestModel(`playerhouse_hotel`); Wait(0); end
 
-  local shell = CreateObject(GetHashKey('playerhouse_hotel'),spawn.x - 0.7,spawn.y-0.4,spawn.z-1.42,false,false,false)
+  local shell = CreateObject(GetHashKey('playerhouse_hotel'),generator.x - 0.7,generator.y-0.4,generator.z-1.42,false,false,false)
   FreezeEntityPosition(shell,true)
   Wait(100)
   
   local objects = {
-    shell     = shell,
-    stuff     = CreateObject(GetHashKey("v_49_motelmp_stuff"),spawn.x,spawn.y,spawn.z,false,false,false),
-    bed       = CreateObject(GetHashKey("v_49_motelmp_bed"),spawn.x+1.4,spawn.y-0.55,spawn.z,false,false,false),
-    clothes   = CreateObject(GetHashKey("v_49_motelmp_clothes"),spawn.x-2.0,spawn.y+2.0,spawn.z+0.15,false,false,false),
-    winframe  = CreateObject(GetHashKey("v_49_motelmp_winframe"),spawn.x+0.74,spawn.y-4.26,spawn.z+1.11,false,false,false),
-    winglass  = CreateObject(GetHashKey("v_49_motelmp_glass"),spawn.x+0.74,spawn.y-4.26,spawn.z+1.13,false,false,false),
-    wincurt   = CreateObject(GetHashKey("v_49_motelmp_curtains"),spawn.x+0.74,spawn.y-4.15,spawn.z+0.9,false,false,false),
-    winscreen = CreateObject(GetHashKey("v_49_motelmp_screen"),spawn.x-2.21,spawn.y-0.6,spawn.z+0.79,false,false,false),
-    trainerA  = CreateObject(GetHashKey("v_res_fa_trainer02r"),spawn.x-1.9,spawn.y+3.0,spawn.z+0.38,false,false,false),
-    trainerB  = CreateObject(GetHashKey("v_res_fa_trainer02l"),spawn.x-2.1,spawn.y+2.95,spawn.z+0.38,false,false,false),
-    sink      = CreateObject(GetHashKey("prop_sink_06"),spawn.x+1.1,spawn.y+4.0,spawn.z,false,false,false),
-    chair1    = CreateObject(GetHashKey("prop_chair_04a"),spawn.x+2.1,spawn.y-2.4,spawn.z,false,false,false),
-    chair2    = CreateObject(GetHashKey("prop_chair_04a"),spawn.x+0.7,spawn.y-3.5,spawn.z,false,false,false),
-    kettle    = CreateObject(GetHashKey("prop_kettle"),spawn.x-2.3,spawn.y+0.6,spawn.z+0.9,false,false,false),
-    tvCabinet = CreateObject(GetHashKey("Prop_TV_Cabinet_03"),spawn.x-2.3,spawn.y-0.6,spawn.z,false,false,false),
-    tv        = CreateObject(GetHashKey("prop_tv_06"),spawn.x-2.3,spawn.y-0.6,spawn.z+0.7,false,false,false),
-    toilet    = CreateObject(GetHashKey("Prop_LD_Toilet_01"),spawn.x+2.1,spawn.y+2.9,spawn.z,false,false,false),
-    clock     = CreateObject(GetHashKey("Prop_Game_Clock_02"),spawn.x-2.55,spawn.y-0.6,spawn.z+2.0,false,false,false),
-    phone     = CreateObject(GetHashKey("v_res_j_phone"),spawn.x+2.4,spawn.y-1.9,spawn.z+0.64,false,false,false),
-    ironBoard = CreateObject(GetHashKey("v_ret_fh_ironbrd"),spawn.x-1.7,spawn.y+3.5,spawn.z+0.15,false,false,false),
-    iron      = CreateObject(GetHashKey("prop_iron_01"),spawn.x-1.9,spawn.y+2.85,spawn.z+0.63,false,false,false),
-    mug1      = CreateObject(GetHashKey("V_Ret_TA_Mug"),spawn.x-2.3,spawn.y+0.95,spawn.z+0.9,false,false,false),
-    mug2      = CreateObject(GetHashKey("V_Ret_TA_Mug"),spawn.x-2.2,spawn.y+0.9,spawn.z+0.9,false,false,false),
-    binder    = CreateObject(GetHashKey("v_res_binder"),spawn.x-2.2,spawn.y+1.3,spawn.z+0.87,false,false,false),
+    stuff     = CreateObject(GetHashKey("v_49_motelmp_stuff"),generator.x,generator.y,generator.z,false,false,false),
+    bed       = CreateObject(GetHashKey("v_49_motelmp_bed"),generator.x+1.4,generator.y-0.55,generator.z,false,false,false),
+    clothes   = CreateObject(GetHashKey("v_49_motelmp_clothes"),generator.x-2.0,generator.y+2.0,generator.z+0.15,false,false,false),
+    winframe  = CreateObject(GetHashKey("v_49_motelmp_winframe"),generator.x+0.74,generator.y-4.26,generator.z+1.11,false,false,false),
+    winglass  = CreateObject(GetHashKey("v_49_motelmp_glass"),generator.x+0.74,generator.y-4.26,generator.z+1.13,false,false,false),
+    wincurt   = CreateObject(GetHashKey("v_49_motelmp_curtains"),generator.x+0.74,generator.y-4.15,generator.z+0.9,false,false,false),
+    winscreen = CreateObject(GetHashKey("v_49_motelmp_screen"),generator.x-2.21,generator.y-0.6,generator.z+0.79,false,false,false),
+    trainerA  = CreateObject(GetHashKey("v_res_fa_trainer02r"),generator.x-1.9,generator.y+3.0,generator.z+0.38,false,false,false),
+    trainerB  = CreateObject(GetHashKey("v_res_fa_trainer02l"),generator.x-2.1,generator.y+2.95,generator.z+0.38,false,false,false),
+    sink      = CreateObject(GetHashKey("prop_sink_06"),generator.x+1.1,generator.y+4.0,generator.z,false,false,false),
+    chair1    = CreateObject(GetHashKey("prop_chair_04a"),generator.x+2.1,generator.y-2.4,generator.z,false,false,false),
+    chair2    = CreateObject(GetHashKey("prop_chair_04a"),generator.x+0.7,generator.y-3.5,generator.z,false,false,false),
+    kettle    = CreateObject(GetHashKey("prop_kettle"),generator.x-2.3,generator.y+0.6,generator.z+0.9,false,false,false),
+    tvCabinet = CreateObject(GetHashKey("Prop_TV_Cabinet_03"),generator.x-2.3,generator.y-0.6,generator.z,false,false,false),
+    tv        = CreateObject(GetHashKey("prop_tv_06"),generator.x-2.3,generator.y-0.6,generator.z+0.7,false,false,false),
+    toilet    = CreateObject(GetHashKey("Prop_LD_Toilet_01"),generator.x+2.1,generator.y+2.9,generator.z,false,false,false),
+    clock     = CreateObject(GetHashKey("Prop_Game_Clock_02"),generator.x-2.55,generator.y-0.6,generator.z+2.0,false,false,false),
+    phone     = CreateObject(GetHashKey("v_res_j_phone"),generator.x+2.4,generator.y-1.9,generator.z+0.64,false,false,false),
+    ironBoard = CreateObject(GetHashKey("v_ret_fh_ironbrd"),generator.x-1.7,generator.y+3.5,generator.z+0.15,false,false,false),
+    iron      = CreateObject(GetHashKey("prop_iron_01"),generator.x-1.9,generator.y+2.85,generator.z+0.63,false,false,false),
+    mug1      = CreateObject(GetHashKey("V_Ret_TA_Mug"),generator.x-2.3,generator.y+0.95,generator.z+0.9,false,false,false),
+    mug2      = CreateObject(GetHashKey("V_Ret_TA_Mug"),generator.x-2.2,generator.y+0.9,generator.z+0.9,false,false,false),
+    binder    = CreateObject(GetHashKey("v_res_binder"),generator.x-2.2,generator.y+1.3,generator.z+0.87,false,false,false),
   }
   
+  objects["shell"] = shell
   for k,v in pairs(objects) do FreezeEntityPosition(v,true); end
 
   SetEntityHeading(chair1,GetEntityHeading(chair1)+270)
