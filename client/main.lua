@@ -1,32 +1,29 @@
 function DespawnInterior(objects, cb)
-    Citizen.CreateThread(function()
-        for k, v in pairs(objects) do
-            if DoesEntityExist(v) then
-                DeleteEntity(v)
-            end
+    for k, v in pairs(objects) do
+        if DoesEntityExist(v) then
+            SetEntityAsMissionEntity(v,true,true)
+            DeleteEntity(v)
         end
-
-        cb()
-    end)
+    end
 end
 
 function TeleportToInterior(x, y, z, h)
-    Citizen.CreateThread(function()
-        DoScreenFadeOut(500)
-        TriggerServerEvent('mythic_sounds:server:PlayOnSource', 'door_open', 0.1)
-        while not IsScreenFadedOut() do
-            Citizen.Wait(10)
-        end
+    DoScreenFadeOut(500)
+    while not IsScreenFadedOut() do Wait(0); end
 
-        SetEntityCoords(PlayerPedId(), x, y, z, 0, 0, 0, false)
-        SetEntityHeading(PlayerPedId(), h)
+    local ped = GetPlayerPed(-1)
+    SetEntityCoords(ped, x, y, z, 0, 0, 0, false)
+    SetEntityHeading(ped, h)
 
-        Citizen.Wait(100)
+    local start = GetGameTimer()
+    FreezeEntityPosition(PlayerPedId(),true)
+    while not HasCollisionLoadedAroundEntity(PlayerPedId()) and GetGameTimer() - start < 5000 do Wait(0); end
+    FreezeEntityPosition(PlayerPedId(),false)
 
-        DoScreenFadeIn(1000)
-    end)
+    DoScreenFadeIn(1000)
+    Wait(1000)
 end
 
-function getRotation(input)
+function GetRotation(input)
     return 360 / (10 * input)
 end
